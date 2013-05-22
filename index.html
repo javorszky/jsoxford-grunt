@@ -38,98 +38,82 @@
 			<div class="slides">
 
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>Deploying with Grunt.js</h1>
+					<h3>How I keep hair on my head</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Talk by <a href="http://javorszky.co.uk">Gabor Javorszky</a> / <a href="http://twitter.com/javorszky">@javorszky</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
+					<h2>Bio, background, etc</h2>
+					<p>I work at <a href="http://www.electricstudio.co.uk">Electric Studio</a> as lead dev.</p>
+					<p>We make WordPress websites.</p>
+					<p>Deploying usually takes a while</p>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+
 				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
+					<h2>Tasks involved</h2>
+					<p>(these are WordPress specific)</p>
 					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
+						<li class="fragment">Export database</li>
+						<li class="fragment">Change database values through search-replace in a text editor (ever tried to open 260 MB of .sql?)</li>
+						<li class="fragment">Create a WordPress install on the live server through cPanel</li>
+						<li class="fragment">Take note of access details to server / database</li>
+						<li class="fragment">Import modified .sql hoping we didn't screw up anything</li>
+						<li class="fragment">Copy files across with your favourite FTP program</li>
+						<li class="fragment">Edit the wp-config.php</li>
+						<li class="fragment">Try to access the site</li>
+						<li class="fragment">Spend an extra hour making sure everything is unbroken</li>
 					</ol>
+					<p>&nbsp;</p>
+					<h3 class="fragment">And do this by hand, while dealing with emails, phone calls, clients and so on...</h3>
+				</section>
+
+				<section>
+					<h2>This sucks!</h2>
+					<p class="fragment">If only there was a way to automate all of that</p>
+				</section>
+
+				<section>
+					<img width="360" height="424" src="css/images/grunt-logo.png" alt="Grunt logo">
+
+					<h2>Enter Grunt.js</h2>
+					<a href="http://http://gruntjs.com/">(Take me to Gruntjs.com)</a>
+				</section>
+
+				<section>
+					<h2>What is Grunt.js?</h2>
+					<p>It's a task runner.</p>
+					<p>I can specify a number of small trivial bits of things I want my computer to do, tell Grunt: y0, d0 th1s!, and I'll go make a coffee or something in the meantime.</p>
+				</section>
+
+				<section>
+					<h2>So how does it work?</h2>
+					<p>Stuff needed for Grunt alone:</p>
+					<ol>
+						<li class="fragment">nodejs installed</li>
+						<li class="fragment">grunt-cli npm module installed globally (-g flag)</li>
+						<li class="fragment">Gruntfile.js in the root of the project</li>
+						<li class="fragment">package.json in the root of the project</li>
+						<li class="fragment"><a href="http://gruntjs.com/plugins">All the plugins you will use to do awesome stuff with</a></li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>These are the plugins I'm using</h2>
+					<ul>
+						<li>rsync</li>
+						<li>compass (for compiling SASS)</li>
+						<li>shell</li>
+						<li>sshexec</li>
+						<li>uglify (for minification)</li>
+						<li>string-replace</li>
+						<li>watch</li>
+					</ul>
 				</section>
 
 				<section data-markdown>
