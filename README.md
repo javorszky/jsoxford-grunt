@@ -36,8 +36,10 @@ $ grunt serve
 
 ## Acknowledgements
 
-1. [reveal.js](https://github.com/hakimel/reveal.js) for making the presentation a possibility
+1. [@jsoxford](https://twitter.com/jsoxford) for organising everything.
 
 2. [White October](http://www.whiteoctober.co.uk/) for hosting the event! (awsm job people!)
 
 3. [Electric Studio](http://www.electricstudio.co.uk/) for letting me break things as I learn them. :)
+
+4. [reveal.js](https://github.com/hakimel/reveal.js) for making the presentation a possibility
