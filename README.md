@@ -4,6 +4,8 @@ These are the slides of my talk at JSOxford on 22nd May, 2013. To see them, skip
 
 ## Installation
 
+If you already have reveal.js set up, grab the `index.html`, and off you go.
+
 TLDR version: use the full setup, and run as intended.
 
 The **basic setup** is for authoring presentations only. The **full setup** gives you access to all reveal.js features as well as the development tasks needed to make changes to the source.
