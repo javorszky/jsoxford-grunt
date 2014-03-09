@@ -119,7 +119,7 @@
         <section>
           <h2>Structure</h2>
           <p>of your Gruntfile.js</p>
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim>
 
 module.exports = function(grunt) {
   var config = require('./grunt-config.json');
@@ -128,7 +128,7 @@ module.exports = function(grunt) {
         task: {
           src: 'path/to/src/dir',
           dest: 'path/to/dest/',
-          host: config.ssh.user+"@"+config.ssh.host,
+          host: config.ssh.user+" @ "+config.ssh.host,
           exclude: ['grunt-config.json', 'node_modules', '*.sublime-*', '*.psd']
         }
       }
@@ -142,7 +142,7 @@ module.exports = function(grunt) {
 
         <section>
           <h2>watch</h2>
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim>
 compass: {
   dist: {
     options: {
@@ -164,7 +164,7 @@ watch: {
 
         <section>
           <h2>Multiple tasks</h2>
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim>
 grunt.registerTask('pulldown', ['sshexec:export_rem_sql',
 'shell:get_remote_files', 'shell:perm_copy_wpconfig',
 'string-replace:pulling_remote', 'shell:create_db',
@@ -200,10 +200,19 @@ grunt.registerTask('default',['list', 'of', 'tasks']);
         </section>
 
         <section>
-          <h2>Other bits</h2>
+          <h2>Other bits Grunt supports</h2>
           <ul>
-            <li class="fragment">parametric task calling (pass arguments from command line) (I have no idea how yet)</li>
-            <li class="fragment">offloading config options to external file (wanna see it?)</li>
+            <li class="fragment"><p>parametric task calling </p>
+            <pre><code>grunt task:foo:bar</code></pre>
+            <p>with</p>
+            <pre><code data-trim>
+grunt.registerTask('task', 'Description', function(arg1, arg2) {
+  console.log(this.name + ", 1:" + arg1 + ", 2:" + arg2);
+});
+</code></pre>
+<p>will produce</p>
+<pre><code>task, 1:foo, 2:bar</code></pre></li>
+            <li class="fragment">offloading config options to external file </li>
             <li class="fragment">custom functions to deal with interesting stuff (see docs on <a href="http://gruntjs.com">Gruntjs.com</a>)</li>
           </ul>
 
